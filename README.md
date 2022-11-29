@@ -12,3 +12,6 @@
 
 大家感兴趣可以看下我在B站对这50个项目的讲解视频
 >https://www.bilibili.com/video/BV1BN4y1j77w/
+
+如果Github下载慢 可以去我的Gitee下载
+>https://gitee.com/itwxb/50item
