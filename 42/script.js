@@ -5,22 +5,24 @@ const listItems = [];
 
 getData()
 
-filter.addEventListener('input',(e)=>filterData(e.target.value))
+filter.addEventListener('input', (e) => filterData(e.target.value))
 
 async function getData() {
     // Fetch API 提供了一个 JavaScript 接口，跨网络异步获取资源。
     const res = await fetch('https://randomuser.me/api?results=50');
 
-    const { results } = await res.json()
+    const {
+        results
+    } = await res.json()
 
-    result.innerHTML=''
+    result.innerHTML = ''
 
     results.forEach(user => {
         const li = document.createElement('li')
 
         listItems.push(li)
 
-        li.innerHTML=`
+        li.innerHTML = `
 
         <img src="${user.picture.large}" alt="${user.name.first}">
         <div class="user-info">
@@ -38,13 +40,13 @@ async function getData() {
 }
 
 // 搜索
-function  filterData(searchTerm) {   
-    listItems.forEach(item=>{
-      
-        if (item.innerText.toLowerCase().includes(searchTerm.toLowerCase())) {
+function filterData(searchTerm) {
+    listItems.forEach(item => {
+       
+        if (item.innerText.toLowerCase().replace(/ /g, "").includes(searchTerm.toLowerCase().replace(/ /g, ""))) {
             item.classList.remove('hide');
-            
-        }else{
+
+        } else {
             item.classList.add('hide');
         }
     })
